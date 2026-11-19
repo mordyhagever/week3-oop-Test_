@@ -43,7 +43,8 @@ class GameManager:
         print("You chose to exit the game!")
         return self.new_game.who_wins_if_ext(self.player1_cards, self.player2_cards, name)
 
-    #Bonus
+
+#Bonus, i did it outside the class so it would make a new instance for a new game
 
 def print_bonus_menu():
     valid = Validation()
