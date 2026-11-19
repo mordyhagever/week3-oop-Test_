@@ -25,21 +25,6 @@ class GameManager:
         choose = int(choose)
         return choose
 
-    def print_bonus_menu(self):
-        valid = Validation()
-        print("""
-            =======================
-                 GAME MANAGER
-            ========================
-
-            1. New game
-            2. Exit
-                        """)
-        choose = input()
-        while not valid.main_choose_checker(choose):
-            choose = input("Only a number from the menu: ")
-        choose = int(choose)
-        return choose
 
     def run(self):
         valid = Validation()
@@ -60,14 +45,31 @@ class GameManager:
 
     #Bonus
 
-    def bonus_run(self):
-        choose = self.print_bonus_menu()
-        choose = int(choose)
-        while choose != 2:
-            print(self.run())
-            choose = self.print_bonus_menu()
+def print_bonus_menu():
+    valid = Validation()
+    print("""
+        =======================
+             GAME MANAGER
+        ========================
 
-        return "You chose to exit, goodbye for now  ️✌️ "
+        1. New game
+        2. Exit
+                    """)
+    choose = input()
+    while not valid.main_choose_checker(choose):
+        choose = input("Only a number from the menu: ")
+    choose = int(choose)
+    return choose
+
+def bonus_run():
+    new_game = GameManager()
+    choose = print_bonus_menu()
+    choose = int(choose)
+    while choose != 2:
+        print(new_game.run())
+        choose = print_bonus_menu()
+
+    return "You chose to exit, goodbye for now  ️✌️ "
 
 
 
