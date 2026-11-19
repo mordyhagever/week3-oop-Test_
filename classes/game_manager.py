@@ -67,7 +67,7 @@ class GameManager:
             print(self.run())
             choose = self.print_bonus_menu()
 
-        return "You chose to exit, goodbye for now"
+        return "You chose to exit, goodbye for now  ️✌️ "
 
 
 

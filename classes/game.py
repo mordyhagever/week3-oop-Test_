@@ -51,7 +51,8 @@ class Game:
         player2_turn = player2_cards.pop(0)
         player2_dict = player2_turn.to_dict()
         # print(f"{player_name}: {player1_dict}")
-        print(f"""{player_name} card:
+        print(f"""
+        {player_name} card:
                  ____________
                 |{player1_dict["shape"]}           |
                 |            |
@@ -61,10 +62,9 @@ class Game:
                 |            |
                 |            | 
                 |___________{player1_dict["shape"]}|
-
-        
-        """)
-        print(f"""  Computer's card:
+        """, end="")
+        print(f"""
+        Computer's card:
                  ____________
                 |{player2_dict["shape"]}           |
                 |            |
@@ -101,8 +101,8 @@ class Game:
 
     def who_wins_if_ext(self, player1_cards, player2_cards, name):
         if len(player1_cards) > len(player2_cards):
-            return "\n======  You win, computer lost! ==========\n"
+            return "\n======  You win, computer lost! 💪 ==========\n"
         elif len(player2_cards) > len(player1_cards):
-            return "\n=========  Sorry you lost!  ============\n"
+            return "\n=========  Sorry you lost! 😪😪 ============\n"
         return "\n============= Both have same amount, it's a tie! ===============\n"
 
