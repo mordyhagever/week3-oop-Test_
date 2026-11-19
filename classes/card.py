@@ -36,13 +36,13 @@ class Card:
 
     def from_string(self):
         if self.number == "J":
-            return 11
+            self.number = 11
         elif self.number == "Q":
-            return 12
+            self.number = 12
         elif self.number == "K":
-            return 13
+            self.number = 13
         elif self.number == "A":
-            return 14
+            self.number = 14
         return self.number
 
 

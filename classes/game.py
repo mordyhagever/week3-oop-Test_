@@ -54,16 +54,16 @@ class Game:
         print(f"{player_name}: {player1_turn.to_dict()}")
         player2_turn = player2_cards.pop(0)
         print(f"Computer's: {player2_turn.to_dict()}")
-        player1_turn = player1_turn.from_string()
-        player2_turn = player2_turn.from_string()
-        if player1_turn > player2_turn:
+        player1 = player1_turn.from_string()
+        player2 = player2_turn.from_string()
+        if player1 > player2:
             print(f"{player_name} won this round!")
-            player1_cards.append(player1_turn)
-            player1_cards.append(player2_turn)
-        elif player2_turn > player1_turn:
+            player1_cards.append(player1_turn.to_string())
+            player1_cards.append(player2_turn.to_string())
+        elif player2 > player1:
             print("Computer won this round!")
-            player2_cards.append(player2_turn)
-            player2_cards.append(player1_turn)
+            player2_cards.append(player2_turn.to_string())
+            player2_cards.append(player1_turn.to_string())
         else:
             print("Tie, no one wins this round")
             player1_cards.append(player1_turn)
@@ -73,27 +73,18 @@ class Game:
 
     def safe_check_who_wins(self, player1_cards, player2_cards, name):
         if not player1_cards:
-            return f"{name} has not cards, computer wins!"
+            return f"{name} has no cards, computer wins!"
         if not player2_cards:
             return f"Computer has not cards, {name} wins!"
         return "Both have cards, game is on"
 
     def who_wins_if_ext(self, player1_cards, player2_cards, name):
         if len(player1_cards) > len(player2_cards):
-            return "You win, computer lost!"
+            return "\n======  You win, computer lost! ==========\n"
         elif len(player2_cards) > len(player1_cards):
-            return "Sorry you lost!"
-        return "Both have same amount, it's a tie!"
+            return "\n=========  Sorry you lost!  ============\n"
+        return "\n============= Both have same amount, it's a tie! ===============\n"
 
-#
-#
-# new_game = Game()
-# mix_cards = new_game.shuffle_to_players(new_game.mix_cards())
-# player1_cards = mix_cards[0]
-# player2_cards = mix_cards[1]
-# # for card in player1_cards:
-# #     print(card.to_dict())
-# print(new_game.play_a_round("Mordy", player1_cards, player2_cards))
 
 
 
