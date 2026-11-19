@@ -48,10 +48,33 @@ class Game:
         print("======== NEW ROUND IS ON ========")
         player1_turn = player1_cards.pop(0)
         player1_dict = player1_turn.to_dict()
-        print(f"{player_name}: {player1_dict}")
         player2_turn = player2_cards.pop(0)
         player2_dict = player2_turn.to_dict()
-        print(f"Computer's: {player2_dict}")
+        # print(f"{player_name}: {player1_dict}")
+        print(f"""{player_name} card:
+                 ____________
+                |{player1_dict["shape"]}           |
+                |            |
+                |            |
+                |            |
+                |      {player1_dict["card number"]}     |
+                |            |
+                |            | 
+                |___________{player1_dict["shape"]}|
+
+        
+        """)
+        print(f"""  Computer's card:
+                 ____________
+                |{player2_dict["shape"]}           |
+                |            |
+                |            |
+                |            |
+                |      {player2_dict["card number"]}     |
+                |            |
+                |            |
+                |___________{player2_dict["shape"]}|
+            """)
         player1 = player1_turn.from_string()
         player2 = player2_turn.from_string()
         if player1 > player2:
@@ -82,8 +105,4 @@ class Game:
         elif len(player2_cards) > len(player1_cards):
             return "\n=========  Sorry you lost!  ============\n"
         return "\n============= Both have same amount, it's a tie! ===============\n"
-
-
-
-
 
