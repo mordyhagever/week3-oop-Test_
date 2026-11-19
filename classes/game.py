@@ -80,9 +80,9 @@ class Game:
 
     def who_wins_if_ext(self, player1_cards, player2_cards, name):
         if len(player1_cards) > len(player2_cards):
-            return "Sorry you lost"
-        elif len(player2_cards) > len(player1_cards):
             return "You win, computer lost!"
+        elif len(player2_cards) > len(player1_cards):
+            return "Sorry you lost!"
         return "Both have same amount, it's a tie!"
 
 #
