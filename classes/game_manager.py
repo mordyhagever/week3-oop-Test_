@@ -50,10 +50,11 @@ class GameManager:
         while choose != 2:
             print(self.new_game.play_a_round(name, self.player1_cards, self.player2_cards))
             if self.new_game.safe_check_who_wins(self.player1_cards, self.player2_cards, name) == "Both have cards, game is on":
+                choose = self.print_menu()
+
                 continue
             else:
-                return
-            choose = self.print_menu()
+                return ""
         print("You chose to exit the game!")
         return self.new_game.who_wins_if_ext(self.player1_cards, self.player2_cards, name)
 

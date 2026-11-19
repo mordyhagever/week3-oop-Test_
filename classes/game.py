@@ -7,19 +7,15 @@ class Game:
         for i in range(13):
             new_card_H = Card(i + 2, "♥")
             new_card_H.to_string()
-            # new_card_H = new_card_H.__dict__
             cards_box.append(new_card_H)
             new_card_D = Card(i + 2, "♦")
             new_card_D.to_string()
-            # new_card_D = new_card_D.__dict__
             cards_box.append(new_card_D)
             new_card_S = Card(i + 2, "♠")
             new_card_S.to_string()
-            # new_card_S = new_card_S.__dict__
             cards_box.append(new_card_S)
             new_card_C = Card(i + 2, "♣")
             new_card_C.to_string()
-            # new_card_C = new_card_C.__dict__
             cards_box.append(new_card_C)
         return cards_box
 
@@ -51,19 +47,21 @@ class Game:
             return "Error, one of players don't have cards!"
         print("======== NEW ROUND IS ON ========")
         player1_turn = player1_cards.pop(0)
-        print(f"{player_name}: {player1_turn.to_dict()}")
+        player1_dict = player1_turn.to_dict()
+        print(f"{player_name}: {player1_dict}")
         player2_turn = player2_cards.pop(0)
-        print(f"Computer's: {player2_turn.to_dict()}")
+        player2_dict = player2_turn.to_dict()
+        print(f"Computer's: {player2_dict}")
         player1 = player1_turn.from_string()
         player2 = player2_turn.from_string()
         if player1 > player2:
             print(f"{player_name} won this round!")
-            player1_cards.append(player1_turn.to_string())
-            player1_cards.append(player2_turn.to_string())
+            player1_cards.append(player1_turn)
+            player1_cards.append(player2_turn)
         elif player2 > player1:
             print("Computer won this round!")
-            player2_cards.append(player2_turn.to_string())
-            player2_cards.append(player1_turn.to_string())
+            player2_cards.append(player2_turn)
+            player2_cards.append(player1_turn)
         else:
             print("Tie, no one wins this round")
             player1_cards.append(player1_turn)

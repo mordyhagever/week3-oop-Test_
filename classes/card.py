@@ -31,18 +31,20 @@ class Card:
             self.number = "K"
         elif self.number == 14:
             self.number = "A"
+        else:
+            self.number = self.number
 
 
 
     def from_string(self):
         if self.number == "J":
-            self.number = 11
+            return 11
         elif self.number == "Q":
-            self.number = 12
+            return 12
         elif self.number == "K":
-            self.number = 13
+            return 13
         elif self.number == "A":
-            self.number = 14
+            return 14
         return self.number
 
 
